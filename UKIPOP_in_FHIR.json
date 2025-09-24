@@ -1,0 +1,543 @@
+{
+  "resourceType": "Bundle",
+  "id": "2d9428e2-3bca-445e-9b7c-612918a04464",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs"
+    ]
+  },
+  "identifier": {
+    "system": "urn:mdi:raven",
+    "value": "1997-10"
+  },
+  "type": "document",
+  "timestamp": "2025-09-03T06:09:52.751+00:00",
+  "entry": [
+    {
+      "fullUrl": "Composition/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-MDIAndEDRS-Composition",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-MDIAndEDRS-Composition",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                    "code": "mdi-case-number",
+                    "display": "MDI Case Number"
+                  }
+                ]
+              },
+              "system": "urn:mdi:raven",
+              "value": "1997-10"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                    "code": "edrs-file-number",
+                    "display": "EDRS File Number"
+                  }
+                ]
+              },
+              "system": "urn:mdi:raven",
+              "value": "GA-2025-0001"
+            }
+          }
+        ],
+        "identifier": {
+          "type": {
+            "coding": [
+              {
+                "system": "urn:temporary:code",
+                "code": "1000007",
+                "display": "Case Number"
+              }
+            ]
+          },
+          "value": "TestIdentifier"
+        },
+        "status": "preliminary",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86807-5",
+              "display": "Death administrative information Document"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "date": "2025-09-03T05:18:51Z",
+        "title": "Raven generated MDI-And-EDRS Document",
+        "section": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "circumstances"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Location/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Death-Location"
+              },
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Tobacco"
+              },
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Pregnancy"
+              },
+              {
+                "reference": "Location/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Injury-Location"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "jurisdiction"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-DeathDate"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "cause-manner"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-CauseOfDeathPart1-0"
+              },
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-MannerOfDeath"
+              },
+              {
+                "reference": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-InjuryIncident"
+              }
+            ]
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "medical-history"
+                }
+              ]
+            },
+            "text": {
+              "status": "empty",
+              "div": "\u003Cdiv smlnx=\"http://www.w3.org/1999/xhtml\"\u003E\u003Cp\u003Eunavailable\u003C/p\u003E\u003C/div\u003E"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "unavailable",
+                  "display": "Unavailable"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "exam-autopsy"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Patient-vr",
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "White"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Hispanic Or Latino"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Ten",
+            "given": [
+              "UKIPOP"
+            ]
+          }
+        ],
+        "gender": "male",
+        "address": [
+          {
+            "use": "home",
+            "city": "Calexico",
+            "postalCode": "92231",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Location/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Death-Location",
+      "resource": {
+        "resourceType": "Location",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Death-Location",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-location"
+          ]
+        },
+        "name": "Death Location",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs",
+                "code": "death",
+                "display": "death location"
+              }
+            ]
+          }
+        ],
+        "address": {
+          "line": [
+            "UCSD Med. Ctr."
+          ],
+          "city": "San Diego",
+          "country": "92103"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Tobacco",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Tobacco",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-tobacco-use-contributed-to-death"
+          ]
+        },
+        "status": "preliminary",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69443-0",
+              "display": "Did tobacco use contribute to death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "373067005",
+              "display": "No"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Pregnancy",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Pregnancy",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-pregnancy-status"
+          ]
+        },
+        "status": "preliminary",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69442-2",
+              "display": "Timing of recent pregnancy in relation to death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+              "code": "NA",
+              "display": "not applicable"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "Location/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Injury-Location",
+      "resource": {
+        "resourceType": "Location",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Injury-Location",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-location"
+          ]
+        },
+        "address": {
+          "city": "Mount Vernon"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-DeathDate",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-DeathDate",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-date"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "81956-5",
+              "display": "Date+time of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "valueDateTime": "1997-03-21T00:00:00Z",
+        "method": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-date-of-death-determination-methods-cs",
+              "code": "approximate",
+              "display": "Approximate"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "58332-8",
+                  "display": "Location of Death"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "16983000",
+                  "display": "Death in hospital"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-CauseOfDeathPart1-0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-CauseOfDeathPart1-0",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "preliminary",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "valueCodeableConcept": {
+          "text": "Severe anaphylaxis (rapid) due to: Severe anaphylaxis (rapid)"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber"
+                }
+              ]
+            },
+            "valueInteger": 1
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-MannerOfDeath",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-MannerOfDeath",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-manner-of-death"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69449-7",
+              "display": "Manner of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "7878000",
+              "display": "Accidental Death"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-InjuryIncident",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-InjuryIncident",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11374-6",
+              "display": "Injury incident description"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/VIP-HEATH-INFORMATICS-FHIR-FALL2025-1-Decedent"
+        },
+        "effectiveDateTime": "1997-03-21T00:00:00+00:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69444-8",
+                  "display": "Did death result from injury at work"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

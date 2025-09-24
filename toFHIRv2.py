@@ -1,39 +1,43 @@
 import json
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone
+from dateutil import parser
 
+
+# Converts single row/record to fhir resource
 def convert_record_to_fhir(record):
     death_date = record.get("DeathDate")
     deceased_datetime = None
 
+    # Get death timestamp based on dtype
     if isinstance(death_date, (int, float)) and death_date > 0:
         try:
-            deceased_datetime = datetime.utcfromtimestamp(death_date / 1000).isoformat()
+            deceased_datetime = datetime.fromtimestamp(death_date / 1000, tz=timezone.utc)
         except (OSError, ValueError):
-            deceased_datetime = None
+            pass
+
     elif isinstance(death_date, str) and death_date.strip():
         try:
-            deceased_datetime = datetime.strptime(death_date, "%Y-%m-%d %H:%M:%S").isoformat()
-        except ValueError:
-            try:
-                deceased_datetime = datetime.strptime(death_date, "%m/%d/%Y %H:%M").isoformat()
-            except ValueError:
-                deceased_datetime = None
+            deceased_datetime = parser.parse(death_date).isoformat()
+        except (ValueError, OverflowError):
+            pass
 
+    # Get gender
     gender = record.get("Gender") or record.get("Sex")
     if isinstance(gender, str):
-        if gender not in ['male', 'female']:
-            if gender == 'm':
-                gender = 'male'
-            elif gender == 'f':
-                gender = 'female'
-            else:
-                gender = 'other'
+        if 'f' in gender:
+            gender = 'female'
+        elif 'm' in gender:
+            gender = 'male'
+        else:
+            gender = 'other'
     else:
         gender = "unknown"
 
+    # Get postal code
     postal_code = str(int(record["DeathZip"])) if isinstance(record.get("DeathZip"), (int, float)) else record.get("DeathZip")
 
+    # Create patient resource
     patient_id = f"pat-{record['CaseIdentifier']}"
     observation_id = f"obs-{record['CaseIdentifier']}"
 
@@ -55,6 +59,7 @@ def convert_record_to_fhir(record):
         }]
     }
 
+    #Create death resource
     death_observation = {
         "resourceType": "Observation",
         "id": observation_id,
@@ -83,6 +88,7 @@ def convert_record_to_fhir(record):
     ]
 
 
+# Filter based on drug_related, setup fhir bundle, call conversion fxn
 def convert_to_fhir(file_path, filter_drug_related=True):
     fhir_bundle = {
         "resourceType": "Bundle",
@@ -90,13 +96,16 @@ def convert_to_fhir(file_path, filter_drug_related=True):
         "entry": []
     }
 
+    # Convert from json
     if file_path.endswith(".jsonl"):
         with open(file_path, "r") as f:
             for line in f:
                 record = json.loads(line)
                 if not filter_drug_related or record.get("DeathType") == "Drug Related":
+                    # for each row or entry in source, create fhir record
                     fhir_bundle["entry"].extend(convert_record_to_fhir(record))
 
+    # Convert from CSV
     elif file_path.endswith(".csv"):
         df = pd.read_csv(file_path, low_memory=False)
         df.fillna("", inplace=True)
@@ -106,12 +115,13 @@ def convert_to_fhir(file_path, filter_drug_related=True):
 
         for _, row in df.iterrows():
             record = row.to_dict()
+            # for each row or entry in source, create fhir record
             fhir_bundle["entry"].extend(convert_record_to_fhir(record))
 
     return fhir_bundle
 
 
-# JSON
+# JSON driver
 file_path = "./input/JSON/milwaukee_county_records.jsonl"
 output_path = "./output/FilteredFromJSON.json"
 
@@ -120,7 +130,7 @@ fhir_data = convert_to_fhir(file_path, filter_drug_related=True)
 with open(output_path, "w") as f:
     json.dump(fhir_data, f, indent=4)
 
-# CSV
+# CSV driver
 file_path = "./input/CSV/milwaukee_county_records.csv"
 output_path = "./output/FilteredFromCSV.json"
 
