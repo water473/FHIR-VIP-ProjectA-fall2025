@@ -152,7 +152,25 @@ RAVEN_MAP = {
 
 # Method to transform CSV file into Raven MDI format based on specified mapping
 def format_csv_to_raven(csv_file, raven_file, mapping, output_loc):
+    """
+        Maps columns from a source CSV into the format of a target (Raven MDI) CSV and saves the result.
 
+        Parameters
+        ----------
+        csv_file : str or Path
+            Path to the source CSV file containing raw data.
+        raven_file : str or Path
+            Path to the Raven-format CSV file that defines the desired output schema.
+        mapping : dict
+            A dictionary mapping Raven column names (keys) to source column names (values).
+        output_loc : str or Path
+            Path where the formatted CSV will be written.
+
+        Returns
+        -------
+        None
+            The function writes the mapped DataFrame to `output_loc` and does not return anything.
+        """
     # Convert to pandas dataframes
     source_df = pd.read_csv(csv_file)
     raven_df = pd.read_csv(raven_file)
