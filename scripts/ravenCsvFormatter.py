@@ -183,6 +183,11 @@ def format_csv_to_raven(csv_file, raven_file, mapping, output_loc):
         else:
             raven_df[target_col] = None
 
+    # Adjust Death Datetime
+    raven_df['CDEATHDATE'] = pd.to_datetime(raven_df['CDEATHDATE'])
+    raven_df['CDEATHTIME'] = raven_df['CDEATHDATE'].dt.strftime("%H:%M:%S")
+    raven_df['CDEATHDATE'] = raven_df['CDEATHDATE'].dt.strftime("%Y-%m-%d")
+
     # Export as csv
     raven_df.to_csv(output_loc, index=False)
 
