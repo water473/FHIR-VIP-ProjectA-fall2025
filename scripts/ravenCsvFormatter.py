@@ -10,6 +10,7 @@ raven_template_loc = '../data/Target-MDI-To-EDRS-Template.csv'
 # Resulting csv output file
 file_runtime = date.today().strftime("%Y-%m-%d")
 output_file = f'MILWAUKEE_TO_RAVEN_{file_runtime}.csv'
+output_file_one_row = f'MILWAUKEE_TO_RAVEN_{file_runtime}_ONE_ROW.csv'
 output_path = '../results/'
 
 # Duplicate Dict Keys? CDEATHTIME and CDEATHDATE. Removed dups for now JST 9-29-25
@@ -190,6 +191,9 @@ def format_csv_to_raven(csv_file, raven_file, mapping, output_loc):
 
     # Export as csv
     raven_df.to_csv(output_loc, index=False)
+
+    #Export one row
+    # raven_df.head(1).to_csv(output_loc, index=False)
 
 
 # ********* Main Driver *****************
